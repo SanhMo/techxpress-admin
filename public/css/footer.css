@@ -1,0 +1,432 @@
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+
+/* ── Newsletter Banner ── */
+.footer-newsletter {
+  background: linear-gradient(135deg, #1a0500 0%, #0f0f0f 50%, #0a1020 100%);
+  border-top: 1px solid rgba(255, 69, 0, 0.15);
+  padding: 56px 24px;
+}
+
+.footer-newsletter-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.newsletter-text .nl-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #ff4500;
+  margin-bottom: 10px;
+}
+
+.newsletter-text .nl-label::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: #ff4500;
+  border-radius: 2px;
+}
+
+.newsletter-text h3 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #f0ede8;
+  line-height: 1.15;
+}
+
+.newsletter-text h3 span {
+  color: #ff4500;
+}
+
+.newsletter-text p {
+  margin-top: 6px;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.newsletter-form input {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f0ede8;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  width: 280px;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.newsletter-form input:focus {
+  border-color: #ff4500;
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.2);
+}
+
+.newsletter-form button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #ff4500;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+  box-shadow: 0 4px 18px rgba(255, 69, 0, 0.4);
+}
+
+.newsletter-form button:hover {
+  background: #ff6a35;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(255, 69, 0, 0.5);
+}
+
+/* ── Main Footer Body ── */
+.footer-body {
+  background: #0d0d0d;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 64px 24px 40px;
+}
+
+.footer-body-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+/* Brand column */
+.footer-brand .brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 18px;
+}
+
+.footer-brand .logo-icon {
+  width: 38px;
+  height: 38px;
+  background: #ff4500;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  box-shadow: 0 0 18px rgba(255, 69, 0, 0.35);
+  flex-shrink: 0;
+}
+
+.footer-brand .logo-text {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #f0ede8;
+}
+
+.footer-brand .logo-text span {
+  color: #ff4500;
+}
+
+.footer-brand .brand-desc {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 280px;
+}
+
+/* Contact info */
+.footer-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.5;
+}
+
+.footer-contact-list li i {
+  color: #ff4500;
+  font-size: 13px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  width: 16px;
+}
+
+/* Social icons */
+.footer-socials {
+  display: flex;
+  gap: 8px;
+}
+
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.social-btn:hover {
+  background: #ff4500;
+  border-color: #ff4500;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(255, 69, 0, 0.35);
+}
+
+/* Footer nav columns */
+.footer-col h4 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #f0ede8;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: #ff4500;
+  border-radius: 1px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.42);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition:
+    color 0.2s,
+    gap 0.2s;
+}
+
+.footer-col ul li a::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 69, 0, 0.4);
+  flex-shrink: 0;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.footer-col ul li a:hover {
+  color: #ff4500;
+  gap: 10px;
+}
+
+.footer-col ul li a:hover::before {
+  background: #ff4500;
+  transform: scale(1.4);
+}
+
+/* ── Payment & Trust Bar ── */
+.footer-trust {
+  background: #0d0d0d;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px 24px;
+}
+
+.footer-trust-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.trust-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.trust-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-right: 4px;
+}
+
+.pay-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 7px;
+  padding: 5px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.pay-badge:hover {
+  border-color: rgba(255, 69, 0, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pay-badge i {
+  color: #ff4500;
+  font-size: 13px;
+}
+
+/* ── Bottom Bar ── */
+.footer-bottom {
+  background: #080808;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 18px 24px;
+}
+
+.footer-bottom-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.footer-copy span {
+  color: #ff4500;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-links a {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover {
+  color: #ff4500;
+}
+
+/* ── Back to Top ── */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background: #ff4500;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.3s,
+    transform 0.3s,
+    box-shadow 0.2s;
+  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4);
+  pointer-events: none;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.back-to-top:hover {
+  box-shadow: 0 10px 28px rgba(255, 69, 0, 0.55);
+  transform: translateY(-3px);
+}

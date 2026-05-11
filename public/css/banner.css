@@ -1,0 +1,361 @@
+/* ══════════════════════════════════════════
+   BANNER — hero slider
+══════════════════════════════════════════ */
+.banner {
+    position: relative;
+    overflow: hidden;
+    height: 520px;
+    background: #111;
+}
+
+.slides {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.slide {
+    width: calc(100% / 3);
+    height: 100%;
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.slide-1 {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0500 50%, #2d0800 100%);
+}
+.slide-2 {
+    background: linear-gradient(135deg, #020818 0%, #051a3a 50%, #0a2d5c 100%);
+}
+.slide-3 {
+    background: linear-gradient(135deg, #0a0f0a 0%, #051a10 50%, #0a2d1a 100%);
+}
+
+.slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.12;
+    background-image: radial-gradient(
+        circle at 70% 50%,
+        rgba(255, 255, 255, 0.15) 0%,
+        transparent 60%
+    );
+}
+
+.slide-visual {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 52%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 18%);
+    mask-image: linear-gradient(to right, transparent 0%, black 18%);
+}
+
+.slide-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.7));
+    animation: imgFloat 4s ease-in-out infinite;
+    transition: filter 0.3s;
+}
+
+@keyframes imgFloat {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.slide-1 .slide-visual img {
+    filter: drop-shadow(0 0 40px rgba(255, 100, 0, 0.35))
+        drop-shadow(0 24px 60px rgba(0, 0, 0, 0.65));
+    animation:
+        imgFloat 4s ease-in-out infinite,
+        glowOrange 3s ease-in-out infinite alternate;
+}
+.slide-2 .slide-visual img {
+    filter: drop-shadow(0 0 40px rgba(0, 140, 255, 0.4))
+        drop-shadow(0 24px 60px rgba(0, 0, 0, 0.65));
+    animation:
+        imgFloat 4s ease-in-out infinite,
+        glowBlue 3s ease-in-out infinite alternate;
+}
+.slide-3 .slide-visual img {
+    filter: drop-shadow(0 0 40px rgba(0, 220, 100, 0.35))
+        drop-shadow(0 24px 60px rgba(0, 0, 0, 0.65));
+    animation:
+        imgFloat 4s ease-in-out infinite,
+        glowGreen 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowOrange {
+    from {
+        filter: drop-shadow(0 0 30px rgba(255, 80, 0, 0.25))
+            drop-shadow(0 24px 60px rgba(0, 0, 0, 0.6));
+    }
+    to {
+        filter: drop-shadow(0 0 60px rgba(255, 80, 0, 0.55))
+            drop-shadow(0 24px 60px rgba(0, 0, 0, 0.6));
+    }
+}
+@keyframes glowBlue {
+    from {
+        filter: drop-shadow(0 0 30px rgba(0, 120, 255, 0.25))
+            drop-shadow(0 24px 60px rgba(0, 0, 0, 0.6));
+    }
+    to {
+        filter: drop-shadow(0 0 60px rgba(0, 180, 255, 0.55))
+            drop-shadow(0 24px 60px rgba(0, 0, 0, 0.6));
+    }
+}
+@keyframes glowGreen {
+    from {
+        filter: drop-shadow(0 0 30px rgba(0, 200, 80, 0.25))
+            drop-shadow(0 24px 60px rgba(0, 0, 0, 0.6));
+    }
+    to {
+        filter: drop-shadow(0 0 60px rgba(0, 255, 100, 0.5))
+            drop-shadow(0 24px 60px rgba(0, 0, 0, 0.6));
+    }
+}
+
+.slide-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 60px;
+    max-width: 600px;
+}
+
+.slide-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 69, 0, 0.15);
+    border: 1px solid rgba(255, 69, 0, 0.3);
+    color: #ff6a35;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 30px;
+    margin-bottom: 18px;
+    width: fit-content;
+}
+
+.slide-tag::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #ff4500;
+    border-radius: 50%;
+    animation: pulse 1.5s ease infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.7);
+    }
+}
+
+.slide-title {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+}
+.slide-title em {
+    font-style: normal;
+    color: #ff4500;
+}
+
+.slide-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 380px;
+}
+
+.slide-price-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.price-new {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ff4500;
+}
+.price-old {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: line-through;
+}
+.price-badge {
+    background: #ff4500;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.slide-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #ff4500;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(255, 69, 0, 0.4);
+}
+.btn-primary:hover {
+    background: #ff6a35;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 69, 0, 0.5);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+/* Controls */
+.banner-prev,
+.banner-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+    backdrop-filter: blur(6px);
+}
+.banner-prev {
+    left: 20px;
+}
+.banner-next {
+    right: 20px;
+}
+.banner-prev:hover,
+.banner-next:hover {
+    background: #ff4500;
+    border-color: #ff4500;
+    color: #fff;
+}
+
+.banner-dots {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    padding: 0;
+}
+.dot.active {
+    background: #ff4500;
+    width: 26px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+}
+
+.banner-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: #ff4500;
+    border-radius: 0 2px 2px 0;
+    animation: progressBar 4s linear infinite;
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.6);
+}
+@keyframes progressBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}

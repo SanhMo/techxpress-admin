@@ -1,0 +1,971 @@
+/* ══════════════════════════════════════════
+   PRODUCT DETAIL — white light theme
+   Đồng bộ với: header.css (variables, fonts)
+══════════════════════════════════════════ */
+
+:root {
+  --accent: #ff4500;
+  --accent-light: #ff6a35;
+  --accent-glow: rgba(255, 69, 0, 0.18);
+  --text-dark: #111111;
+  --text-mid: #444444;
+  --text-muted: #999999;
+  --border: #e8e4df;
+  --bg-page: #f7f6f4;
+  --bg-white: #ffffff;
+  --bg-soft: #faf9f7;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.09);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-page);
+  font-family: "Be Vietnam Pro", sans-serif;
+  color: var(--text-dark);
+  /* override header.css dark body */
+  background: var(--bg-page) !important;
+  color: var(--text-dark) !important;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── BREADCRUMB ── */
+.breadcrumb-wrap {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.breadcrumb span {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.breadcrumb i {
+  font-size: 9px;
+  color: #ccc;
+}
+
+/* ══════════════════════════════════════════
+   TOP SECTION GRID
+══════════════════════════════════════════ */
+.pd-main {
+  padding-bottom: 80px;
+}
+
+.pd-top {
+  background: var(--bg-white);
+  padding: 40px 0 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ══════════════════════════════════════════
+   GALLERY
+══════════════════════════════════════════ */
+.pd-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 88px; /* below fixed header */
+}
+
+.gallery-main {
+  position: relative;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-main-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.gallery-main-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.gallery-zoom {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-mid);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.gallery-zoom:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.gallery-badge-wrap {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gbadge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.gbadge-hot {
+  background: #fff3e0;
+  color: #e65100;
+}
+.gbadge-sale {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Thumbnails */
+.gallery-thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.thumb {
+  flex: 1;
+  aspect-ratio: 1;
+  background: var(--bg-soft);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 6px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.thumb:hover {
+  border-color: #ccc;
+}
+.thumb:hover img {
+  transform: scale(1.06);
+}
+
+.thumb.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* ══════════════════════════════════════════
+   PRODUCT INFO (right column)
+══════════════════════════════════════════ */
+.pd-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Brand + SKU */
+.pd-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.brand-logo-img {
+  height: 24px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.pd-sku {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* Title */
+.pd-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.25;
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+
+/* Rating row */
+.pd-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.stars-lg {
+  color: #f59e0b;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.rating-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.rating-count {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--border);
+}
+
+.rating-count:hover {
+  color: var(--accent);
+}
+
+.pd-divider {
+  color: var(--border);
+}
+
+.pd-sold {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pd-sold i {
+  color: var(--accent);
+}
+
+/* Price box */
+.pd-price-box {
+  background: linear-gradient(135deg, #fff8f6, #fff);
+  border: 1px solid #ffd5c8;
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: 22px;
+}
+
+.pd-price-main {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.pd-price-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.pd-price-old {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.pd-discount-pill {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #fff0ec;
+  color: var(--accent);
+  border: 1px solid #ffd5c8;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.pd-price-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pd-price-note i {
+  color: var(--accent);
+}
+
+/* Quick specs chips */
+.pd-quick-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.qspec {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  color: var(--text-mid);
+  font-weight: 500;
+}
+
+.qspec i {
+  color: var(--accent);
+  font-size: 13px;
+  width: 14px;
+  text-align: center;
+}
+
+/* Separator */
+.pd-separator {
+  height: 1px;
+  background: var(--border);
+  margin: 18px 0;
+}
+
+/* Variant selector */
+.pd-variant {
+  margin-bottom: 16px;
+}
+
+.variant-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.variant-chosen {
+  font-weight: 700;
+  color: var(--text-dark);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.variant-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.vopt {
+  padding: 7px 18px;
+  background: var(--bg-white);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.vopt:hover {
+  border-color: #bbb;
+  color: var(--text-dark);
+}
+
+.vopt.active {
+  background: #fff5f2;
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* Color swatches */
+.vopt-color {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s;
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+}
+
+.vopt-color:hover {
+  outline-color: #ccc;
+}
+
+.vopt-color.active {
+  outline-color: var(--accent);
+  border-color: white;
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* Qty row */
+.pd-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.qty-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-white);
+}
+
+.qty-btn {
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  color: var(--text-mid);
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    color 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-btn:hover {
+  background: var(--bg-soft);
+  color: var(--accent);
+}
+
+.qty-val {
+  width: 44px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-dark);
+  border-left: 1.5px solid var(--border);
+  border-right: 1.5px solid var(--border);
+  line-height: 40px;
+}
+
+.pd-stock {
+  font-size: 13px;
+  color: #2e7d32;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pd-stock i {
+  font-size: 12px;
+}
+
+/* CTA buttons */
+.pd-cta-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.cta-buy {
+  flex: 1;
+  padding: 14px 20px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 4px 18px rgba(255, 69, 0, 0.3);
+}
+
+.cta-buy:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255, 69, 0, 0.4);
+}
+
+.cta-cart {
+  flex: 1;
+  padding: 14px 20px;
+  background: var(--bg-white);
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-md);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.cta-cart:hover {
+  background: #fff5f2;
+  transform: translateY(-2px);
+}
+
+.cta-wish {
+  width: 52px;
+  flex-shrink: 0;
+  background: var(--bg-white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.cta-wish:hover,
+.cta-wish.wished {
+  border-color: #e53935;
+  color: #e53935;
+  background: #fff5f5;
+}
+
+/* Trust badges */
+.pd-trust {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trust-item > i {
+  width: 36px;
+  height: 36px;
+  background: #fff0ec;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.trust-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.trust-item strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.trust-item span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ══════════════════════════════════════════
+   TABS SECTION
+══════════════════════════════════════════ */
+.pd-tabs-section {
+  padding: 48px 0 0;
+}
+
+.pd-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 36px;
+}
+
+.tab-btn {
+  padding: 12px 28px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: var(--text-dark);
+}
+
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.tab-panel {
+  display: none;
+}
+.tab-panel.active {
+  display: block;
+}
+
+/* Specs grid */
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding-bottom: 48px;
+}
+
+.specs-group {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.specs-group-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+  padding: 13px 18px;
+  letter-spacing: 0.2px;
+}
+
+.specs-group-title i {
+  color: var(--accent);
+  font-size: 14px;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specs-table tr:not(:last-child) td {
+  border-bottom: 1px solid #f0ede8;
+}
+
+.specs-table td {
+  padding: 11px 18px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.specs-table td:first-child {
+  width: 38%;
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.specs-table td:last-child {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.specs-table tr:hover td {
+  background: #faf8f6;
+}
+
+/* Description tab */
+.desc-content {
+  max-width: 800px;
+  padding-bottom: 48px;
+  line-height: 1.8;
+}
+
+.desc-content h2 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.desc-content h3 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 24px 0 8px;
+}
+
+.desc-content p {
+  font-size: 14.5px;
+  color: var(--text-mid);
+}
+
+/* ══════════════════════════════════════════
+   FOOTER (mini)
+══════════════════════════════════════════ */
+.pd-footer {
+  background: var(--text-dark);
+  padding: 20px 0;
+}
+
+.pd-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pd-footer p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.pd-footer span {
+  color: var(--accent);
+}
+
+.pd-footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.pd-footer-links a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pd-footer-links a:hover {
+  color: var(--accent);
+}
+
+/* ══════════════════════════════════════════
+   STICKY BOTTOM BAR
+══════════════════════════════════════════ */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-white);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.08);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 90;
+  /* ẩn trên desktop rộng */
+  display: none;
+}
+
+.sticky-price {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  flex: 1;
+}
+
+.sticky-cart {
+  padding: 11px 18px;
+  background: var(--bg-white);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  color: var(--accent);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.sticky-cart:hover {
+  background: #fff5f2;
+}
+
+.sticky-buy {
+  padding: 11px 22px;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 4px 14px rgba(255, 69, 0, 0.3);
+}
+
+.sticky-buy:hover {
+  background: var(--accent-light);
+}
+
+/* Show sticky bar on smaller screens */
+@media (max-width: 900px) {
+  .sticky-bar {
+    display: flex;
+  }
+  .pd-main {
+    padding-bottom: 80px;
+  }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .pd-grid {
+    gap: 36px;
+  }
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pd-grid {
+    grid-template-columns: 1fr;
+  }
+  .pd-gallery {
+    position: static;
+  }
+  .pd-quick-specs {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pd-cta-row {
+    flex-wrap: wrap;
+  }
+  .cta-buy,
+  .cta-cart {
+    flex: unset;
+    width: 100%;
+  }
+  .cta-wish {
+    width: 100%;
+    height: 48px;
+  }
+}
